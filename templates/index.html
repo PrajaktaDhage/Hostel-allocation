@@ -1,1 +1,30 @@
-<\!-- HTML placeholder -->
+<!DOCTYPE html>
+<html>
+<head><title>Hostel Allocation</title></head>
+<body>
+    <h2>Student List</h2>
+    <table border="1">
+        <tr><th>ID</th><th>Name</th><th>Gender</th><th>Department</th><th>Year</th></tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td><td>{{ s[3] }}</td><td>{{ s[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Add Student</h3>
+    <form method="POST" action="/add_student">
+        Name: <input type="text" name="name"><br>
+        Gender: <input type="text" name="gender"><br>
+        Department: <input type="text" name="department"><br>
+        Year: <input type="number" name="year"><br>
+        <input type="submit" value="Add">
+    </form>
+
+    <h3>Allocate Room</h3>
+    <form method="POST" action="/allocate">
+        Student ID: <input type="number" name="student_id"><br>
+        <input type="submit" value="Allocate">
+    </form>
+</body>
+</html>
